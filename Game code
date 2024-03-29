@@ -1,0 +1,1978 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include <windows.h>
+#include<iomanip>
+
+using namespace std;
+
+string reply;
+int lvlcounter = 1;
+int clue = 0;
+int weapons = 15;
+char arr1[9] = { '2', '3', '4', '6', '7', '1','8', '9', '5' };
+char arr2[9] = { '5', '9', '0', '3', '8', '1', '2', '4', '6' };
+char arr3[9] = { '9', '4', '8', '1', '3','0', '6', '2', '7' };
+int size1 = 11;
+string arr[] = { "Classroom","Lab","P.G.","c1","Seminar", "Lecture", "IAEC","Library", "RIMMS","c2", "Outside" };
+
+void game();
+void trial();
+void wordsearch();
+void pertable();
+void wordscramble();
+void calendar();
+void riddle1();
+void riddle2();
+void bodmas();
+void makeword();
+void check(int);
+bool presence(string);
+void wordguess();
+void lvl1();
+void lvl2();
+void lvl3();
+void lvl4();
+void lvl5();
+void lvl6();
+void lvl7();
+void lvl8();
+void lvl9();
+void lvl10();
+void c1();
+void c2();
+void lib();
+void lvlj();
+void zombie();
+bool minilose();
+void lvl10clue(char[]);
+void remove(string);
+void location(int);
+void character();
+void l1();
+void l2();
+void l3();
+void l4();
+void l5();
+void l6();
+void l7();
+void l8();
+void l9();
+void l10();
+void lose();
+void win();
+void skull();
+void knife();
+
+int main() {
+	system("Color E4");
+	string response;
+	cout << "The day after a mysterious outbreak claims the premise of the National University of Science and Technology,";
+	cout << "one student finds themself stranded in the School of Electrical Engineering and Computer Science." << endl;
+	cout << "being left alone in this zombie-infested school, they brace themself for the journey to return the school to its former glory." << endl;
+	character();
+	cout << "Do you want to take a trial?(y/n)" << endl;
+	cin >> response;
+
+	if (response == "y" || response == "Y") {
+		trial();
+		game();
+
+		if (weapons == 0) {
+			system("Color 4E");
+			cout << "You have lost the game. You lost all your weapons." << endl;
+			lose();
+		}
+	}
+	else {
+		game();
+	}
+	if (weapons == 0) {
+		system("Color 4E");
+		cout << "You have lost the game. You lost all your weapons." << endl;
+		lose();
+	}
+}
+
+void game() {
+	system("Color E4");
+	lvl1();
+	while (weapons > 0 && lvlcounter < 9) {
+		switch (lvlcounter) {
+		case(1):
+			system("Color E4");
+			location(lvlcounter);
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(2):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(3):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(4):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(5):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(6):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(7):
+			system("Color E4");
+			location(++lvlcounter);
+			break;
+		case(8):
+			system("Color E4");
+			lvl10();
+			lvlcounter++;
+			break;
+		}
+	}
+}
+
+void trial() {
+	int weapon = 50, zombie = 100;
+	char input;
+	cout << "Every time a zombie spawns, you will be given the option to kill it using your weapon." << endl;
+	cout << "Failure to do so will result in loss of weapon.";
+	skull();
+	system("Color 20");
+	cout << "A zombie has spawned! Practice killing it by using a weapon" << endl;
+	cout << "press w to kill it\n";
+	cin >> input;
+	input = tolower(input);
+	if (input == 'w') {
+		knife();
+		--weapon;
+		--zombie;
+		cout << "The zombie has been successfully killed" << endl;
+		cout << "Your weapons are now reduced to " << weapon << endl << endl;
+	}
+	cout << "The games will be time bound so it is important that you keep track of time." << endl;
+	cout << "Play the game cleverly and you will win!" << endl;
+}
+
+void zombie() {
+	char input;
+	system("Color 20");
+	skull();
+	cout << "A zombie is approaching!" << endl;
+	cout << "Press w to kill zombie when it spawns" << endl;
+	cin >> input;
+	input = tolower(input);
+	if (input == 'w') {
+		knife();
+		cout << "The zombie has been killed successfully" << endl << "Your weapons have been reduced to " << --weapons << endl;
+	}
+	else
+		cout << "The zombie got you" << endl << "Your weapons have been reduced to " << --weapons << endl;
+}
+
+void lvl1() {
+	l1();
+	char input;
+	cout << "\n\nYou are scouting SEECS campus for any sign of life when you stumble upon some hidden documents in the CR-14\'s cabinet.\n";
+	cout << "You are shocked to see the documents as they revealed that there is some mysterious antidote in the campus which could help  revive humanity.\n";
+	cout << "Hopeful after seeing such a revelation, you decide to look for such an ELIXIR OF LIFE.\n ";
+	zombie();
+	system("Color E4");
+	cout << "\n\nPhew!! That was soo close.\n";
+	cout << "You can move forward.\n";
+	cout << "Oh there seems to be a challenge in your way...It appears to be a word guessing game\n.";
+	cout << "You must solve it quickly before any more zombies approach you.\n ";
+	wordguess();
+}
+
+void lvl2() {
+	l2();
+	cout << "\n\nWay to go!!" << endl << "This is level 2.\n" << endl;
+	cout << "You have succesfully escaped the zombies of previous location. \nIt's been a hard time saving your self. \nZombies don't seem to stop.\n" << endl;
+	cout << "You must hurry. \nLet's not waste time and start the \"Word Search\"" << endl;
+	cout << "Let's start" << endl;
+	wordsearch();
+}
+
+void lvl3() {
+	l3();
+	cout << "Way to go!!" << endl << "This is level 3.\n" << endl;
+	cout << "You have succesfully escaped the zombies of previous location. \nIt's been a hard time saving your self. \nZombies d0n't seem to stop.\n" << endl;
+	cout << "You must hurry. \nLet's not waste time and start a \"RIDDLE\"" << endl;
+	cout << "Let's start" << endl;
+	riddle1();
+
+}
+
+void lvl4() {
+	l4();
+	cout << "Way to go!!" << endl << "This is level 4.\n" << endl;
+	cout << "You have succesfully escaped the zombies of previous location. \nIt's been a hard time saving your self. \nZombies don't seem to stop.\n" << endl;
+	cout << "You must hurry. \nLet's not waste time and start a \"Bodmas\"" << endl;
+	cout << "Let's start" << endl;
+	bodmas();
+
+}
+
+void lvl5() {
+	l5();
+	cout << "Good job!" << endl << "This is level 5\n";
+	cout << "From this level onwards, you have the choice to skip a minigame and move on to the next level.";
+	lvlj();
+
+}
+
+void lvl6() {
+	l6();
+	cout << "Good job!" << endl << "This is level 6\n";
+
+	lvlj();
+	zombie();
+}
+
+void lvl7() {
+	l7();
+	cout << "Good job!" << endl << "This is level 7\n";
+	lvlj();
+
+}
+
+void lvl8() {
+	l8();
+	cout << "Good job!" << endl << "This is level 8\n";
+
+	lvlj();
+	zombie();
+}
+
+void lvl9() {
+	l9();
+	cout << "Good job!" << endl << "This is level 9\n";
+
+	lvlj();
+	zombie();
+}
+
+void wordguess() {
+	string input;
+	cout << "You are now starting the word guessing game\nSee the clues below and guess the word!";
+
+	srand(time(0));
+	int random = rand() % (5) + 1;
+	switch (random) {
+	case 1:
+		cout << "An event that causes widespread disaster and havoc:\n\n";
+		cout << "1. catastrophe\t\t\t2. fatality\n3. barbarity\t\t\t4. atrocity";
+
+		break;
+	case 2:
+		cout << "The last fight between good and evil:\n\n";
+		cout << "1. apocalypse \t\t\t2. armageddon\n3. cataclysm\t\t\t4. skirmish";
+
+		break;
+	case 3:
+		cout << "The complete wiping out of something:\n\n";
+		cout << "1. debacle\t\t\t2. apocalypse\n3. devastation\t\t\t4. annihilation ";
+
+		break;
+	case 4:
+		cout << "An occurence of death in combat:\n\n";
+		cout << "1. lethality\t\t\t2. inevitablitly\n3. brutality\t\t\t4. fatality";
+
+		break;
+	case 5:
+		cout << "A ghost or widely feared entity:\n\n";
+		cout << "1. apparition\t\t\t2. ghouls\n3. cataclysm\t\t\t4. peril";
+
+		break;
+	}
+
+
+
+	cout << "\n\nEnter your choice: ";
+	cin >> input;
+	switch (random) {
+	case 1:
+		if (input == "catastrophe") {
+			cout << "\nYou have passed! Proceed to the next level.\n\n";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else
+		{
+			cout << "\nYour answer is wrong!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	case 2:
+		if (input == "armageddon") {
+			cout << "\nYou have passed! Proceed to the next level.\n\n";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else
+		{
+			cout << "\nYour answer is wrong!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	case 3:
+		if (input == "annihilation") {
+			cout << "\nYou have passed! Proceed to the next level.\n\n";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else
+		{
+			cout << "\nYour answer is wrong!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	case 4:
+		if (input == "fatality") {
+			cout << "\nYou have passed! Proceed to the next level.\n\n";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else
+		{
+			cout << "\nYour answer is wrong!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	case 5:
+		if (input == "apparition") {
+			cout << "\nYou have passed! Proceed to the next level.\n\n";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else
+		{
+			cout << "\nYour answer is wrong!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+
+}
+
+void wordsearch() {
+	cout << "Let's play the word search game" << endl;
+	cout << "From the set of letters, find a word related to apocalypse." << endl;
+	cout << "It may be horizontal, vertical or diagonal." << endl;
+	cout << "It can go in any direction too." << endl;
+	cout << "let's begin the game." << endl;
+	cout << endl;
+
+	char array[6][6] = {};
+	srand(time(0));
+	int n = rand() % (5) + 1;
+
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 6; j++) {
+			array[i][j] = rand() % 26 + 97;
+		}
+	}
+
+
+	switch (n) {
+	case(1):
+		//bloody
+		array[0][0] = 'b';
+		array[1][1] = 'l';
+		array[2][2] = 'o';
+		array[3][3] = 'o';
+		array[4][4] = 'd';
+		array[5][5] = 'y';
+		break;
+
+	case(2):
+		//expose
+		array[0][2] = 'e';
+		array[1][2] = 'x';
+		array[2][2] = 'p';
+		array[3][2] = 'o';
+		array[4][2] = 's';
+		array[5][2] = 'e';
+		break;
+
+	case (3):
+		//zombie
+		array[0][5] = 'z';
+		array[1][4] = 'o';
+		array[2][3] = 'm';
+		array[3][2] = 'b';
+		array[4][1] = 'i';
+		array[5][0] = 'e';
+		break;
+
+	case (4):
+		//oracle
+		array[0][5] = 'e';
+		array[1][5] = 'l';
+		array[2][5] = 'c';
+		array[3][5] = 'a';
+		array[4][5] = 'r';
+		array[5][5] = 'o';
+		break;
+
+	case (5):
+		//undead
+		array[3][0] = 'd';
+		array[3][1] = 'a';
+		array[3][2] = 'e';
+		array[3][3] = 'd';
+		array[3][4] = 'n';
+		array[3][5] = 'u';
+		break;
+	}
+
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 6; j++) {
+			cout << array[i][j];
+			cout << "\t";
+		}
+		cout << endl;
+	}
+	cout << endl;
+
+	string ans;
+	cin >> ans;
+	cout << endl;
+
+	for (int i = 0; i < ans.length(); i++) {
+		ans[i] = tolower(ans[i]);
+	}
+	switch (n) {
+	case(1):
+		if (ans == "bloody") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(2):
+		if (ans == "expose") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(3):
+		if (ans == "zombie") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(4):
+		if (ans == "oracle") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(5):
+		if (ans == "undead") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+	cout << endl;
+}
+
+void riddle1() {
+	string guess;
+	int n = rand() % 3 + 1;
+
+	cout << "It seems a riddle was thrown at you again . If you wanna move forward, answer the given riddle!!!!\n";
+
+	switch (n) {
+	case 1:
+		cout << "I\'m always with you, even in the dark. \n";
+		cout << "I make your heart race and leave a lasting mark. \n";
+		cout << "In the shadows I lurk, in corners I hide. \n";
+		cout << "I feed on your fears, always by your side :o . \n";
+		cout << "What am I ?? \n";
+		break;
+	case 2:
+		cout << "I crack when I\'m weary.\n";
+		cout << "Tingle when I\'m scared.\n";
+		cout << "And stretch when I\'m proud. \n";
+		cout << "What am I??? :o \n";
+		break;
+
+	case 3:
+		cout << "The more of this there is, the less you see. \n";
+		cout << "What is it ? :o \n";
+		break;
+	}
+	switch (n) {
+
+	case 1: {bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("fear" == guess) {
+				cout << "You have answered correctly :) . The answer was FEAR DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+			}
+			else {
+				cout << "You have guessed incorrectly :| . Try again. \n";
+
+			}
+
+			attempts++;
+		}
+		if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+	case 2: {bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("spine" == guess) {
+				cout << "You have answered correctly :) . The answer was spine DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+
+			}
+			else {
+				cout << "You have guessed incorrectly :|  Try again. \n";
+
+			}
+
+			attempts++;
+		}if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break; }
+	case 3: {
+		bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("darkness" == guess) {
+				cout << "You have answered correctly :) . The answer was darkness DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+			}
+			else {
+				cout << "You have guessed incorrectly :| . Try again. \n";
+
+
+			}
+
+			attempts++;
+		}
+		if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	}
+	}
+
+}
+
+void bodmas() {
+	system("Color E4");
+	int input;
+	cout << "You are now starting a BODMAS game\nAnswer the given mathematical problem by following the bodmas rule";
+
+	srand(time(0));
+	int random = rand() % (4) + 1;
+	switch (random) {
+	case 1:
+		cout << "\n6/2(1+2)= ";
+
+		break;
+	case 2:
+		cout << "\n16/2(2+2)= ";
+
+		break;
+	case 3:
+		cout << "\n12-3*6/2= ";
+
+		break;
+	case 4:
+		cout << "\n3-1*0+3/3= ";
+
+		break;
+	}
+
+
+	cin >> input;
+
+	if (input == random) {
+		cout << "\n\nYou have entered the right answer. You can proceed to the next level.\n\n";
+		win();
+		cout << "You have gained a clue.";
+		clue++;
+		zombie();
+	}
+	else {
+		cout << "\nYou entered the wrong answer!\n\n";
+		minilose();
+		cout << "Your weapons are reduced to " << --weapons << endl;
+	}
+
+
+}
+
+void pertable() {
+	srand(time(0));
+	int n = rand() % (5) + 1;
+	string code, decode;
+
+	cout << "There is yet another challange." << endl;
+	cout << "You found a list of elements." << endl;
+	cout << "Lithium= Li" << "\n" << "Potassium = K" << endl << "Boron = B" << "\n" << "Nitrogen = N" << endl << "Iodine= I" << "\n" << "Radium= Ra" << endl;
+	cout << "Sulphur = S" << "\n" << "Einsteinium = Es" << endl << "Americium = Am" << "\n" << "Oxygen = O" << endl << "Zinc = Z" << "\n" << "Molybdenum = Mo" << endl;
+	cout << "Use it to crack the code!" << endl;
+	cout << endl;
+
+	switch (n) {
+	case(1):
+		cout << "The elements are: \nLithium \nIron" << endl;
+		code = "life";
+		break;
+
+	case(2):
+		cout << "The elements are: \nPotassium, \nNitrogen, \nIodine, \nIron" << endl;
+		code = "knife";
+		break;
+
+	case(3):
+		cout << "The elements are: \nBoron, \nRadium,\nIodine, \nNitrogen, \nSulphur" << endl;
+		code = "brains";
+		break;
+
+	case(4):
+		cout << "The elements are: \nAmericium, \nBoron, \nUranium, \nSulphur, \nHydrogen" << endl;
+		code = "ambush";
+		break;
+
+	case(5):
+		cout << "The elements are: \nZinc \nOxygen \nMolybdenum \nIodine \nEinsteinium" << endl;
+		code = "zombies";
+		break;
+
+	}
+
+	cout << endl;
+	cout << "Your guess: " << endl;
+	cin >> decode;
+	cout << endl;
+	for (int i = 0; i < decode.length(); i++) {
+		decode[i] = tolower(decode[i]);
+	}
+	if (decode == code) {
+		cout << "You made it!!!" << endl;
+		cout << "Let's move forward!" << endl;
+		win();
+		clue++;
+		zombie();
+	}
+	else {
+		cout << "Bruh! No dude. Be serious man. You're gonna be a zomie at this rate." << endl;
+		minilose();
+		cout << "Your weapons are reduced to " << --weapons << endl;
+	}
+}
+
+void wordscramble() {
+	srand(time(0));
+	int n = rand() % (5) + 1;
+	cout << "Here's the next game" << endl;
+	cout << "For this game, you'll hsve to unscramble the letters." << endl;
+
+
+	string scr, unscr;
+	switch (n) {
+	case(1):
+		scr = "yeladd";
+		break;
+
+	case(2):
+		scr = "erepyc";
+		break;
+
+	case(3):
+		scr = "oclapaypes";
+		break;
+
+	case(4):
+		scr = "tgirhf";
+		break;
+
+	case(5):
+		scr = "skiyr";
+		break;
+	}
+
+	cout << scr << endl;
+	cout << endl;
+	cout << "What do you think it is?" << endl;
+	cin >> unscr;
+
+	for (int i = 0; i < unscr.length(); i++) {
+		unscr[i] = tolower(unscr[i]);
+	}
+
+	switch (n) {
+	case(1):
+		if (unscr == "deadly") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(2):
+		if (unscr == "creepy") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(3):
+		if (unscr == "apocalypse") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(4):
+		if (unscr == "fright") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(5):
+		if (unscr == "risky") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+			zombie();
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+	cout << endl;
+}
+
+void calendar() {
+	string arr[] = { "j(January, June, July)= 1, 6, 7", "f(February)= 2", "m(March, May)= 3, 5", "a(April, August)= " };
+	string cd1, cd2, dcd1, dcd2;
+	cout << "Oops! There are some morer codes that you need to decode" << endl;
+	cout << "Enter the crack of these codes in sequence." << endl;
+	cout << "Here are some hints: " << endl << "j(January, June, July) = 1, 6, 7" << endl << "f(February)= 2" << endl << "m(March, May)= 3, 5" << endl;
+	cout << "a(April, August)= 4, 8" << endl << "s(September)= 9" << endl << "o(October)=10" << endl << "n(November)= 11" << endl << "d(December)=12" << endl;
+	cout << "Press enter after each decode." << endl;
+
+	srand(time(0));
+	int n = rand() % (5) + 1;
+
+	switch (n) {
+	case(1):
+		cd1 = "3 4 12 \t5 8 11";
+		cd2 = "6 4 9 10 11 \t3 10 5";
+		break;
+
+	case(2):
+		cd1 = "2 10 10 12 \t3 4 11";
+		cd2 = "9 10 11 \t1 4 3";
+		break;
+
+	case(3):
+		cd1 = "12 4 3 11 \t9 10 11";
+		cd2 = "5 8 12 \t12 4 12";
+		break;
+
+	case(4):
+		cd1 = "2 10 11 12 \t3 4 12";
+		cd2 = "5 10 3 \t12 4 12 8";
+		break;
+
+	case(5):
+		cd1 = "11 10 12 \t5 4 3 8";
+		cd2 = "2 4 3 \t6 8 5 \t9 10";
+		break;
+	}
+
+	cout << "No spaces in each crack." << endl;
+	cout << endl;
+	cout << cd1 << endl;
+	cout << "Crack: ";
+	cin >> dcd1;
+	cout << cd2 << endl;
+	cout << "Crack: ";
+	cin >> dcd2;
+	cout << endl;
+
+	for (int i = 0; i < dcd1.length(); i++) {
+		dcd1[i] = tolower(dcd1[i]);
+	}
+	for (int i = 0; i < dcd2.length(); i++) {
+		dcd2[i] = tolower(dcd2[i]);
+	}
+
+	switch (n) {
+	case(1):
+		if (dcd1 == "madman" && dcd2 == "jasonmom") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(2):
+		if (dcd1 == "foodman" && dcd2 == "sonjam") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(3):
+		if (dcd1 == "damnson" && dcd2 == "maddad") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(4):
+		if (dcd1 == "fondmad" && dcd2 == "momdada") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	case(5):
+		if (dcd1 == "nodmama" && dcd2 == "famjamso") {
+			cout << "Yes! That's right." << endl << "Let's move forward";
+			win();
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "The zombie's got ya!";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+	cout << endl;
+
+}
+
+void makeword() {
+	cout << "Another game for you! \nYou have to make three words from the alphabets of the given words" << endl;
+
+	srand(time(0));
+	int random = rand() % (3) + 1;
+	switch (random) {
+	case 1:
+		cout << "Bodies\n\n";
+		check(random);
+		break;
+	case 2:
+		cout << "Undead\n\n";
+		check(random);
+		break;
+	case 3:
+		cout << "Brains\n\n";
+		check(random);
+		break;
+	}
+}
+
+void check(int x) {
+	string i1, i2, i3;
+	cin >> i1 >> i2 >> i3;
+	switch (x) {
+	case 1:
+	case 2:
+	case 3:
+		if (presence(i1) && presence(i2) && presence(i3)) {
+			cout << "\n\nYou made it to the next level!\n\n";
+			cout << "You have gained a clue.";
+			clue++;
+		}
+		else {
+			cout << "\n\nYou lost the game!\n\n";
+			minilose();
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+}
+
+bool presence(string y) {
+	int k = 0;
+	for (int j = 0; j < y.length(); j++) {
+		y[j] = tolower(y[j]);
+	}
+	string words[24] = { "does", "dose","die","sob","bid","dad","due","den","dean","sin","ran","bin","rain","rains","ode","bra","bose","dead","dune","sod","dud", "bairn", "bairns","ban" };
+	for (int i = 0; i < 24; i++) {
+		if (words[i] == y) {
+			k = 1;
+			break;
+		}
+
+	}
+	if (k == 0)
+		return false;
+	else
+		return true;
+
+}
+
+void riddle2() {
+	string guess;
+	int n = rand() % 3 + 1;
+
+	cout << "It seems a riddle was thrown at you again . If you wanna move forward, answer the given riddle!!!!\n";
+
+	switch (n) {
+	case 1:
+		cout << "It seems a riddle was thrown at you.\nIf you wanna move forward, answer the given riddle!!!!\n";
+		cout << "\t\"The person who built it, sold it. \n\t The person who sold it never used it. \n\t The person who used it never saw it. \n";
+		cout << "What is it??\n";
+		break;
+	case 2:
+		cout << "David’s parents have three sons: \n.";
+		cout << "Snap, Crackle, and what’s the name of the third son ? \n";
+		break;
+
+	case 3:
+		cout << "It disappears as soon as you say  it\'s name?? \n";
+		cout << "What is it ? :o \n";
+		break;
+	}
+	switch (n) {
+
+	case 1: {bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("coffin" == guess) {
+				cout << "You have answered correctly :) . The answer was coffin DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+			}
+			else {
+				cout << "You have guessed incorrectly :| . Try again. \n";
+
+			}
+
+			attempts++;
+		}
+		if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+	}
+	case 2: {bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("david" == guess) {
+				cout << "You have answered correctly :) . The answer was spine DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+			}
+			else {
+				cout << "You have guessed incorrectly :| . Try again. \n";
+
+			}
+
+			attempts++;
+		}if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break; }
+	case 3: {
+		bool correct = false;
+		int attempts = 1, max_attempts = 3;
+
+		while (attempts <= max_attempts && !correct) {
+			cout << "Your answer: " << endl;
+			cin >> guess;
+			for (int i = 0; i < guess.length(); i++) {
+				guess[i] = tolower(guess[i]);
+			}
+			if ("silence" == guess) {
+				cout << "You have answered correctly :) . The answer was silence DUN DUN DUN!!!. Let\'s move forward!!. \n";
+				win();
+				clue++;
+				correct = true;
+				zombie();
+			}
+			else {
+				cout << "You have guessed incorrectly :| . Try again. \n";
+
+			}
+
+			attempts++;
+		}
+		if (!correct) {
+			cout << "You have run out of attempts :( . \n";
+			cout << "Your weapons are reduced to " << --weapons << endl;
+		}
+		break;
+
+	}
+	}
+
+}
+
+void lvlj() {
+	if (weapons > 1) {
+		cout << "Do you plan to skip this game and jump to next level? \nIt is a wise way to save time. \nBut you will sacrifice a weapon this way. \nYou will also miss a clue." << endl;
+		cout << "Are you sure you want to skip this level?" << endl;
+		cin >> reply;
+		if (reply == "Yes" || reply == "yes") {
+			cout << "You just skipped to the next level!" << endl;
+			switch (lvlcounter) {
+			case(4):
+				lvlcounter++;
+				lvl6();
+				break;
+
+			case(5):
+				lvlcounter++;
+				lvl7();
+				break;
+
+			case(6):
+				lvlcounter++;
+				lvl8();
+				break;
+
+			case(7):
+				lvlcounter++;
+				lvl9();
+				break;
+			case 8:
+				lvlcounter++;
+				lvl10();
+				break;
+			}
+
+		}
+		else {
+			cout << "Let's go back to the game." << endl;
+			switch (lvlcounter) {
+			case(4):
+				riddle2();
+				break;
+
+			case(5):
+				calendar();
+				break;
+
+			case(6):
+				pertable();
+				break;
+
+			case(7):
+				wordscramble();
+				break;
+
+			case(8):
+				makeword();
+				break;
+			}
+
+		}
+	}
+	else {
+		cout << "You don't have enough weapons. \nYou will have to play the game. \nYou can't skip this level." << endl;
+		cout << "Let's go back to the game." << endl;
+		switch (lvlcounter) {
+		case(4):
+			riddle2();
+			break;
+
+		case(5):
+			calendar();
+			break;
+
+		case(6):
+			pertable();
+			break;
+
+		case(7):
+			wordscramble();
+			break;
+
+		case(8):
+			makeword();
+			break;
+		}
+
+	}
+}
+
+void c1() {
+
+	cout << "You are in Concordia 1 at this time" << endl;
+	cout << "You have sacrificed a clue to gain weapons which will help you kill the zombies." << endl;
+
+	cout << "Going to c1 helped you gain a weapon, your weapons are now " << ++weapons << endl;
+
+
+}
+
+void c2() {
+
+	cout << "You are in Concordia 2 at this time" << endl;
+	cout << "You have sacrificed a clue to gain weapons which will help you kill the zombies." << endl;
+
+	cout << "Going to c2 helped you gain a weapon, your weapons are now " << ++weapons << endl;	lvlcounter = lvlcounter + 2;
+}
+
+void lib() {
+
+	cout << "Wise choice of coming to the library despite all the chaos." << endl;
+	cout << "It is never a wrong time to reach out for the books" << endl;
+	cout << "This choice has awarded you with a clue." << endl << "CONGRATULATIONS!!!!" << endl;
+	clue++;
+
+
+}
+
+bool minilose() {
+	system("Color 4E");
+	cout << "You have the lost the minigame." << endl;
+	cout << "You'll lose a weapon." << endl;
+	lose();
+	return 1;
+}
+
+void lvl10() {
+	l10();
+	cout << "You have now entered level 10!" << endl;
+	if (clue == 9) {
+		cout << "Since you played the game cleverly, you got the password (mentioned below) to get antidote:" << endl;
+		srand(time(0));
+		int n = rand() % 3 + 1;
+		switch (n) {
+		case1:
+			cout << arr1;
+			break;
+		case 2:
+			cout << arr2;
+			break;
+		case 3:
+			cout << arr3;
+			break;
+		}
+
+		win();
+	}
+	else if (clue < 9) {
+		cout << "Since you have missed " << 9 - clue << " clues, you will have to enter numbers in the missing spots\n You get three attempts for each clue: ";
+		cout << "Remember! The password has DISTINCT digits.\n";
+		srand(time(0));
+		int n = rand() % 3 + 1;
+		switch (n) {
+		case 1:
+			lvl10clue(arr1);
+			break;
+		case 2:
+			lvl10clue(arr2);
+			break;
+		case 3:
+			lvl10clue(arr3);
+			break;
+		}
+
+	}
+
+}
+
+void lvl10clue(char a[]) {
+	int wrong = 0;
+	char t;
+	char p, q{}, s, u;
+	int r = 9 - clue;
+	for (int i = 1; i <= r; i++) {
+		if (i == 1) {
+			p = a[i];
+			a[i] = '_';
+		}
+		else if (i == 2) {
+			q = a[i + 2];
+			a[i + 2] = '_';
+		}
+		else if (i == 3) {
+			s = a[i + 2];
+			a[i + 2] = '_';
+		}
+		else if (i == 4) {
+			u = a[i + 3];
+			a[i + 3] = '_';
+		}
+	}
+	cout << a;
+	for (int i = 1; i <= r; i++) {
+		if (i == 1) {
+			for (int k = 1; k <= 3; k++) {
+				cout << "\nEnter the number missing at the " << i + 1 << "nd place:";
+				cin >> t;
+				if (t == p) {
+					cout << endl;
+					break;
+				}
+				else {
+					cout << "\nYou have entered the wrong number at " << i + 1 << "nd place." << endl;
+					if (k == 3)
+						wrong++;
+					continue;
+				}
+			}
+		}
+
+		else if (i == 2) {
+			for (int k = 1; k <= 3; k++) {
+				cout << "\n\nEnter the number missing at the " << i + 3 << "th place:";
+				cin >> t;
+				if (t == q) {
+					cout << endl;
+					break;
+				}
+				else {
+					cout << "\nYou have entered the wrong number at " << i + 3 << "th place." << endl;
+					if (k == 3)
+						wrong++;
+					continue;
+				}
+			}
+		}
+
+		else if (i == 3) {
+			for (int k = 1; k <= 3; k++) {
+				cout << "\n\nEnter the number missing at the " << i + 3 << "th place:";
+				cin >> t;
+				if (t == s) {
+					cout << endl;
+					break;
+				}
+				else {
+					cout << "\nYou have entered the wrong number at " << i + 3 << "th place." << endl;
+					if (k == 3)
+						wrong++;
+					continue;
+				}
+			}
+		}
+
+		else if (i == 4) {
+			for (int k = 1; k <= 3; k++) {
+				cout << "\n\nEnter the number missing at the " << i + 4 << "th place:";
+				cin >> t;
+				if (t == u) {
+					cout << endl;
+					break;
+				}
+				else {
+					cout << "\nYou have entered the wrong number at " << i + 4 << "th place." << endl;
+					if (k == 3)
+						wrong++;
+					continue;
+				}
+			}
+		}
+
+
+
+	}
+	if (wrong > 0) {
+		cout << "You guessed wrong " << wrong << " times hence you have lost the game." << endl;
+		lose();
+	}
+	else {
+		cout << "You have unlocked the locker. The world is yours to save. YOU WON!!!" << endl;
+		win();
+	}
+}
+
+void location(int n) {
+	string choice;
+	cout << "You have the choice to choose one of the following two places." << endl;
+	cout << "While choosing the place, mind the capitalisation!" << endl;
+	cout << "Remember! Make reasonable choices." << endl;
+	switch (n) {
+	case 1:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			lvl2();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			lvl2();
+		}
+		remove(choice);
+		break;
+	case 2:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+
+			//gui background prompt
+			lvl3();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			lvl3();
+		}
+		remove(choice);
+		break;
+
+	case 3:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+
+		//gui background prompt
+		if (choice == arr[0]) {
+			if (choice == "c1") {
+				c1();
+
+			}
+			if (choice == "c2") {
+				c2();
+
+			}
+			if (choice == "Library") {
+				lib();
+
+			}
+			else
+				lvl4();
+		}
+
+
+		else if (choice == arr[1]) {
+
+			//gui background prompt
+			if (choice == "c1") {
+				c1();
+
+			}
+			if (choice == "c2") {
+				c2();
+			}
+			if (choice == "Library") {
+				lib();
+
+			}
+			else
+				lvl4();
+		}
+
+
+		remove(choice);
+		break;
+	case 4:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl5();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl5();
+		}
+		remove(choice);
+		break;
+	case 5:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl6();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl6();
+		}
+		remove(choice);
+		break;
+	case 6:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl7();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl7();
+		}
+		remove(choice);
+		break;
+	case 7:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl8();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl8();
+		}
+		remove(choice);
+		break;
+	case 8:
+		cout << arr[0] << endl << arr[1] << endl;
+		cin >> choice;
+		if (choice == arr[0]) {
+			//gui background prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl9();
+		}
+		else if (choice == arr[1]) {
+			//gui backround prompt
+			if (choice == "c1")
+				c1();
+			if (choice == "c2")
+				c2();
+			if (choice == "Library")
+				lib();
+			else
+				lvl9();
+		}
+		remove(choice);
+		break;
+	}
+}
+
+void remove(string x) {
+	int index = -1, i;
+
+	for (i = 0; i < size1; i++) {
+		if (arr[i] == x) {
+			index = i;
+			break;
+		}
+	}
+	if (index != -1) {
+		for (i = index; i < size1 - 1; i++)
+			arr[i] = arr[i + 1];
+	}
+	else {
+		cout << "You have already visited the place you want to visit.";
+
+	}
+
+}
+
+void character() {
+	string pro;
+	cout << "Do you want a male protagonist or female protagonist?";
+	cin >> pro;
+	for (int i = 0; i < pro.size(); i++) {
+		pro[i] = tolower(pro[i]);
+	}
+	if (pro == "male") {
+		system("Color 90");
+		cout << "You have chosen a male protagonist." << endl;
+		cout << setw(3) << " O" << endl;
+		cout << setw(4) << "/|\\" << endl;
+		cout << setw(3) << "/ | \\" << endl;
+		cout << setw(4) << "/ \\" << endl;
+		cout << setw(3) << "/   \\" << endl;
+	}
+	else if (pro == "female") {
+		system("Color D0");
+		cout << "You have chosen a female protagonist. " << endl;
+		std::cout << std::setw(3) << " O" << std::endl;
+		std::cout << std::setw(5) << "/|\\ " << std::endl;
+		std::cout << std::setw(4) << "/ \\" << std::endl;
+		std::cout << std::setw(4) << "/ \\" << std::endl;
+	}
+	else
+		cout << "You have entered invalid input";
+}
+
+void l1() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           //||        ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||             ||        ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||             ||        ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||             ||        ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l10() {
+	cout << endl;
+	cout << endl;
+	cout << "       ------------------------------------------------------------------------------------------------" << endl;
+	cout << "       ------------------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                            ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           //||    ||||||||    ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||             ||    ||    ||    ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||             ||    ||    ||    ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||             ||    ||    ||    ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||  ||||||||    ||" << endl;
+	cout << "       ||                                                                                            ||" << endl;
+	cout << "       ------------------------------------------------------------------------------------------------" << endl;
+	cout << "       ------------------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l2() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||               ||      ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||           ||          ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l3() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||               ||      ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||               ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l4() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||  ||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||           ||  ||      ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||               ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||       ||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l5() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||           ||          ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||               ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l6() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||           ||          ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||           ||  ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l7() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||||    ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||                //     ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||               //      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||              //       ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||     //        ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l8() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||           ||  ||      ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||           ||  ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||   ||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void l9() {
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       ||           ||||||||||   \\\\       //  ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||            \\\\     //   ||           ||           ||  ||      ||" << endl;
+	cout << "       ||       ||           ||||||||||     \\\\   //    ||||||||||   ||           ||||||      ||" << endl;
+	cout << "       ||       ||           ||              \\\\ //     ||           ||               ||      ||" << endl;
+	cout << "       ||       ||||||||||   ||||||||||       \\\_/      ||||||||||   ||||||||||       ||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+}
+
+void lose() {
+	system("Color 4E");
+	Beep(1000, 500);
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||      \\\\    // |||||||| ||    ||         ||         |||||||| |||||||| ||||||||      ||" << endl;
+	cout << "       ||       \\\\  //  ||    || ||    ||         ||         ||    || ||       ||            ||" << endl;
+	cout << "       ||        \\\\//   ||    || ||    ||         ||         ||    || |||||||| ||||||||      ||" << endl;
+	cout << "       ||         ||    ||    || ||    ||         ||         ||    ||       || ||            ||" << endl;
+	cout << "       ||         ||    |||||||| ||||||||         |||||||||| |||||||| |||||||| ||||||||      ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+	Beep(1000, 500);
+
+}
+
+void win() {
+	system("Color 5F");
+	Beep(1000, 500);
+	cout << endl;
+	cout << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ||       \\\\    // |||||||| ||    ||         ||   ||   || |||||||| ||\\\\    ||          ||" << endl;
+	cout << "       ||        \\\\  //  ||    || ||    ||         ||   ||   ||    ||    || \\\\   ||          ||" << endl;
+	cout << "       ||         \\\\//   ||    || ||    ||         ||   ||   ||    ||    ||  \\\\  ||          ||" << endl;
+	cout << "       ||          ||    ||    || ||    ||         ||   ||   ||    ||    ||   \\\\ ||          ||" << endl;
+	cout << "       ||          ||    |||||||| ||||||||          ||||  ||||  |||||||| ||    \\\\||          ||" << endl;
+	cout << "       ||                                                                                    ||" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << "       ----------------------------------------------------------------------------------------" << endl;
+	cout << endl;
+	Beep(1000, 500);
+}
+
+void skull() {
+	cout << endl;
+	cout << endl;
+	cout << "		   ## ##    #################    ## ##       " << endl;
+	cout << "		     ##    ###################    ##      " << endl;
+	cout << "		      ##   ###   #######   ###   ##       " << endl;
+	cout << "		       ##  ###   #######   ###  ##        " << endl;
+	cout << "		        ## ################### ##       " << endl;
+	cout << "		        ## ########   ######## ##        " << endl;
+	cout << "		       ##    ######   ######    ##      " << endl;
+	cout << "		      ##     ###############     ##      " << endl;
+	cout << "		     ##      ###         ###      ##     " << endl;
+	cout << "		   ## ##      #############      ## ##    " << endl;
+	cout << endl;
+	cout << endl;
+}
+
+void knife() {
+	cout << endl;
+	cout << "        /\\\ " << endl;
+	cout << "       /||\\\ " << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "       ||||" << endl;
+	cout << "     ||||||||" << endl;
+	cout << "        ||" << endl;
+	cout << "        ||" << endl;
+	cout << "        ||" << endl;
+	cout << endl;
+	cout << endl;
+}
